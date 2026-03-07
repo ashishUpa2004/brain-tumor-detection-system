@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # COGNITIVE Tumor Detection Web Application
 
 A healthcare AI web application designed to assist medical professionals in brain tumor detection through MRI scan analysis.
@@ -62,3 +63,6 @@ This project uses:
 - Tailwind CSS v4 with custom color palette
 - ESLint for code quality
 - Prettier for consistent code formatting
+=======
+# brain-tumor-detection-system
+>>>>>>> af9bb6bea3b7ccde43ac3b834bbb2bae392cf9f7
