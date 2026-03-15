@@ -1,0 +1,118 @@
+/**
+ * Footer Component
+ * 
+ * Displays privacy compliance information and security indicators.
+ * Requirements: 10.3, 10.4, 11.1, 11.3, 11.4
+ */
+
+export default function Footer() {
+  return (
+    <footer className="bg-[#0a1628] border-t border-cyan-500/10 mt-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+          {/* Security & Encryption */}
+          <div className="flex items-start space-x-3">
+            <svg
+              className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              />
+            </svg>
+            <div>
+              <p className="font-medium text-gray-200">
+                Secure & Encrypted
+              </p>
+              <p className="text-gray-400 mt-1">
+                All data transmissions are encrypted using industry-standard HTTPS/TLS protocols
+              </p>
+            </div>
+          </div>
+
+          {/* Privacy Compliance */}
+          <div className="flex items-start space-x-3">
+            <svg
+              className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              />
+            </svg>
+            <div>
+              <p className="font-medium text-gray-200">
+                HIPAA Compliant
+              </p>
+              <p className="text-gray-400 mt-1">
+                Patient data is handled in accordance with HIPAA privacy and security regulations
+              </p>
+            </div>
+          </div>
+
+          {/* Data Protection */}
+          <div className="flex items-start space-x-3">
+            <svg
+              className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            <div>
+              <p className="font-medium text-gray-200">
+                Data Protection
+              </p>
+              <p className="text-gray-400 mt-1">
+                Your medical data is stored securely and never shared with third parties
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright and Links */}
+        <div className="mt-6 pt-6 border-t border-cyan-500/10 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+          <p className="text-gray-400 text-xs">
+            © {new Date().getFullYear()} COGNITIVE Tumor Detection. All rights reserved.
+          </p>
+          <div className="flex space-x-6 text-xs">
+            <a
+              href="#"
+              className="text-gray-400 hover:text-cyan-400 transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-cyan-400 transition-colors"
+            >
+              Terms of Service
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-cyan-400 transition-colors"
+            >
+              Contact Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
