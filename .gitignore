@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+backend_temp/venv/
+*.egg-info/
+
+# Environment
+.env
+backend_temp/.env
+
+# ML Models (large files)
+*.keras
+*.h5
+*.pkl
+
+# Generated files
+backend_temp/uploads/*
+!backend_temp/uploads/.gitkeep
+backend_temp/heatmaps/*
+!backend_temp/heatmaps/.gitkeep
+backend_temp/media/reports/*
+!backend_temp/media/reports/.gitkeep
+backend_temp/reports/*
+!backend_temp/reports/.gitkeep
+
+# Build
+frontend/dist/
+frontend/.env.local
+
+# IDE
+.vscode/
+.kiro/
+
+# DB
+*.sqlite3
+db.sqlite3

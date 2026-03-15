@@ -1,0 +1,18 @@
+Django==4.2.9
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+djangorestframework-simplejwt==5.3.1
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.6
+pillow==12.1.1
+reportlab==4.0.9
+pydantic==2.5.3
+python-dotenv==1.0.1
+mysqlclient==2.2.1
+email-validator==2.3.0
+
+# ML Dependencies
+tensorflow==2.15.0
+numpy==1.24.3
