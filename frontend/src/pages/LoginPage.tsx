@@ -117,43 +117,39 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
         </div>
       </div>
 
-      {/* Header with tagline - Much larger and more prominent */}
-      <div className="relative z-30 p-10 md:p-12 lg:p-16">
-        <p className="text-[#a0b0cc] text-xl md:text-2xl lg:text-3xl tracking-[0.3em] uppercase font-medium">
+      {/* Header with tagline */}
+      <div className="relative z-30 p-6 md:p-8">
+        <p className="text-[#a0b0cc] text-xs md:text-sm tracking-[0.3em] uppercase font-medium">
           REDEFINING NEURAL INTELLIGENCE
         </p>
       </div>
 
-      {/* Main content area - Better spacing and centering */}
-      <div className="relative z-30 flex-1 flex items-center justify-center px-6 py-12">
-        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Main content area */}
+      <div className="relative z-30 flex-1 flex items-center justify-center px-4 py-6">
+        <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left side - Branding and form */}
-          <div className="flex flex-col items-center md:items-start space-y-12">
-            {/* COGNITIVE heading with subtitle - Much larger */}
-            <div className="text-center md:text-left space-y-4">
+          <div className="flex flex-col items-center md:items-start space-y-6">
+            {/* COGNITIVE heading */}
+            <div className="text-center md:text-left space-y-1">
               <div className="flex items-center justify-center md:justify-start">
-                <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-extrabold text-cyan-400 tracking-tight leading-none">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-cyan-400 tracking-tight leading-none">
                   C
                 </h1>
-                
-                {/* Brain3D icon replacing "O" - Using Brain3D component */}
-                <div className="inline-block w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 -mx-2 translate-y-2">
+                <div className="inline-block w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 -mx-1 translate-y-1">
                   <Brain3D animate={true} />
                 </div>
-                
-                <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-extrabold text-cyan-400 tracking-tight leading-none">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-cyan-400 tracking-tight leading-none">
                   GNITIVE
                 </h1>
               </div>
-              <p className="text-3xl sm:text-4xl md:text-5xl text-[#94a3b8] font-light tracking-wide ml-48">
+              <p className="text-base sm:text-lg md:text-xl text-[#94a3b8] font-light tracking-wide">
                 Brain Tumor Detection
               </p>
             </div>
 
-            {/* Form container - Much larger with better spacing */}
-            <div className="w-full max-w-3xl bg-[#0d1f35]/90 backdrop-blur-sm border-2 border-cyan-500/30 rounded-3xl shadow-2xl p-16 lg:p-20 ml-48">
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Error message display */}
+            {/* Form container */}
+            <div className="w-full max-w-md bg-[#0d1f35]/90 backdrop-blur-sm border-2 border-cyan-500/30 rounded-2xl shadow-2xl p-6 lg:p-8">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {error && (
                   <ErrorMessage 
                     message={error} 
@@ -161,10 +157,9 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
                   />
                 )}
 
-                {/* Name input (signup only) - Much larger */}
                 {isSignupMode && (
                   <div>
-                    <label htmlFor="name" className="block text-3xl font-medium text-gray-200 mb-4">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-1.5">
                       Full Name
                     </label>
                     <input
@@ -172,16 +167,15 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-6 py-6 min-h-[70px] text-3xl bg-[#0a1628] border border-cyan-500/30 text-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all placeholder:text-3xl placeholder-[#94a3b8]"
+                      className="w-full px-4 py-3 text-sm bg-[#0a1628] border border-cyan-500/30 text-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all placeholder-[#94a3b8]"
                       placeholder="Dr. John Doe"
                       required={isSignupMode}
                     />
                   </div>
                 )}
 
-                {/* Email input with validation - Much larger */}
                 <div>
-                  <label htmlFor="email" className="block text-3xl font-medium text-gray-200 mb-4">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1.5">
                     Email Address
                   </label>
                   <input
@@ -193,20 +187,19 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
                       setEmailError(null);
                     }}
                     onBlur={handleEmailBlur}
-                    className={`w-full px-6 py-6 min-h-[70px] text-3xl bg-[#0a1628] border rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-gray-200 placeholder:text-3xl placeholder-[#94a3b8] ${
+                    className={`w-full px-4 py-3 text-sm bg-[#0a1628] border rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-gray-200 placeholder-[#94a3b8] ${
                       emailError ? 'border-red-500' : 'border-cyan-500/30'
                     }`}
                     placeholder="your.email@example.com"
                     required
                   />
                   {emailError && (
-                    <p className="mt-2 text-base text-red-400">{emailError}</p>
+                    <p className="mt-1 text-xs text-red-400">{emailError}</p>
                   )}
                 </div>
 
-                {/* Password input with validation - Much larger */}
                 <div>
-                  <label htmlFor="password" className="block text-3xl font-medium text-gray-200 mb-4">
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-200 mb-1.5">
                     Password
                   </label>
                   <input
@@ -218,48 +211,45 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
                       setPasswordError(null);
                     }}
                     onBlur={handlePasswordBlur}
-                    className={`w-full px-6 py-6 min-h-[70px] text-3xl bg-[#0a1628] border rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-gray-200 placeholder:text-3xl placeholder-[#94a3b8] ${
+                    className={`w-full px-4 py-3 text-sm bg-[#0a1628] border rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-gray-200 placeholder-[#94a3b8] ${
                       passwordError ? 'border-red-500' : 'border-cyan-500/30'
                     }`}
                     placeholder="••••••••"
                     required
                   />
                   {passwordError && (
-                    <p className="mt-2 text-base text-red-400">{passwordError}</p>
+                    <p className="mt-1 text-xs text-red-400">{passwordError}</p>
                   )}
                   {isSignupMode && !passwordError && (
-                    <p className="mt-2 text-base text-gray-400">
+                    <p className="mt-1 text-xs text-gray-400">
                       Min 8 characters, uppercase, lowercase, number, and special character
                     </p>
                   )}
                 </div>
 
-                {/* Submit buttons - Much larger */}
-                <div className="space-y-4 pt-4">
-                  {/* Login/Signup button - gradient */}
+                <div className="space-y-3 pt-2">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-5 min-h-[60px] rounded-xl text-xl font-semibold hover:from-cyan-400 hover:to-blue-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg shadow-cyan-500/30"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 rounded-xl text-sm font-semibold hover:from-cyan-400 hover:to-blue-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg shadow-cyan-500/30"
                   >
                     {loading ? (
                       <LoadingSpinner size="small" />
                     ) : (
                       <>
                         {isSignupMode ? 'Sign Up' : 'Log In'}
-                        <svg className="w-7 h-7 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                       </>
                     )}
                   </button>
 
-                  {/* Toggle mode button - larger */}
                   <button
                     type="button"
                     onClick={toggleMode}
                     disabled={loading}
-                    className="w-full text-cyan-300 text-lg hover:text-cyan-200 transition-colors disabled:opacity-50 py-3"
+                    className="w-full text-cyan-300 text-sm hover:text-cyan-200 transition-colors disabled:opacity-50 py-2"
                   >
                     {isSignupMode ? 'Already have an account? Log In' : 'Need an account? Sign Up'}
                   </button>
@@ -268,18 +258,18 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
             </div>
           </div>
 
-          {/* Right side - Brain3D illustration - Larger and shifted right */}
+          {/* Right side - Brain3D illustration */}
           <div className="hidden md:flex items-center justify-center">
-            <div className="transform scale-[1.75] translate-x-56 translate-y-24">
+            <div className="transform scale-125">
               <Brain3D animate={true} />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Footer with inspirational quote - Much larger */}
-      <div className="relative z-30 p-10 md:p-12 lg:p-16 text-center">
-        <p className="text-[#a0b0cc] text-lg md:text-xl lg:text-2xl italic font-medium max-w-5xl mx-auto tracking-wide leading-relaxed">
+      {/* Footer */}
+      <div className="relative z-30 p-6 md:p-8 text-center">
+        <p className="text-[#a0b0cc] text-xs md:text-sm italic font-medium max-w-2xl mx-auto tracking-wide leading-relaxed">
           "Early detection saves lives - detects before symptoms appear"
         </p>
       </div>
