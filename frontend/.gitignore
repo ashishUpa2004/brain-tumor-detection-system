@@ -27,3 +27,4 @@ dist-ssr
 # Python virtual environment
 venv/
 
+.vercel
