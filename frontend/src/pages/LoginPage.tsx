@@ -126,7 +126,7 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
 
       {/* Main content area */}
       <div className="relative z-30 flex-1 flex items-center justify-center px-4 py-6">
-        <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center md:pl-52">
           {/* Left side - Branding and form */}
           <div className="flex flex-col items-center md:items-start space-y-6">
             {/* COGNITIVE heading */}
