@@ -18,6 +18,18 @@ COGNITIVE is a full-stack web application that analyzes MRI scans and classifies
 - **No Tumor**
 
 ---
+## UI Images
+<img width="720" height="720" alt="Screenshot (178)" src="https://github.com/user-attachments/assets/1abd1e37-9f9b-4f4f-bb5d-f934a22936ae" />
+<img width="720" height="720" alt="Screenshot (179)" src="https://github.com/user-attachments/assets/b249fa3c-641d-4b35-981c-34fce9820a7b" />
+<img width="720" height="720" alt="Screenshot (180)" src="https://github.com/user-attachments/assets/d16b46c4-d207-49a4-8e49-8429cdc2a5a9" />
+<img width="720" height="720" alt="Screenshot (181)" src="https://github.com/user-attachments/assets/9a5126c0-d6e2-4eec-b27c-47e4ac39cf33" />
+<img width="720" height="720" alt="Screenshot (182)" src="https://github.com/user-attachments/assets/98071d6d-a15c-4a41-bbc3-fab477c4a83d" />
+<img width="720" height="720" alt="Screenshot (183)" src="https://github.com/user-attachments/assets/8f047939-bbd1-474a-bfda-ee3bd31347e4" />
+
+**PDF file genrated**
+
+<img width="695" height="866" alt="Screenshot 2026-04-02 233830" src="https://github.com/user-attachments/assets/fb3056c9-7c28-4388-b361-4d59fbcd76d0" />
+
 
 ## ✨ Features
 
