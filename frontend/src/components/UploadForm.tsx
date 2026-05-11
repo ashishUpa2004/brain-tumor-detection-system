@@ -171,7 +171,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
   // ============================================================================
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-3">
       {/* Error Message */}
       {error && (
         <ErrorMessage 
@@ -184,7 +184,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
       <div>
         <label 
           htmlFor="patientName" 
-          className="block text-xl sm:text-2xl font-medium text-[#1E293B] dark:text-gray-200 mb-3"
+          className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-3"
         >
           Patient Name <span className="text-red-500 dark:text-red-400">*</span>
         </label>
@@ -193,7 +193,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
           id="patientName"
           value={patientName}
           onChange={(e) => setPatientName(e.target.value)}
-          className="w-full px-5 py-4 min-h-[52px] text-lg border border-gray-400 dark:border-cyan-500/30 rounded-xl focus:ring-0 focus:border-cyan-500 dark:focus:ring-2 dark:focus:ring-cyan-400 dark:focus:border-transparent outline-none transition-all bg-white dark:bg-[#0a1628] text-[#1E293B] dark:text-gray-200 placeholder-gray-500 dark:placeholder-[#94a3b8]"
+          className="w-full px-3 py-2 text-sm border border-gray-400 dark:border-cyan-500/30 rounded-xl focus:ring-0 focus:border-cyan-500 dark:focus:ring-2 dark:focus:ring-cyan-400 dark:focus:border-transparent outline-none transition-all bg-white dark:bg-[#0a1628] text-[#1E293B] dark:text-gray-200 placeholder-gray-500 dark:placeholder-[#94a3b8]"
           placeholder="Enter patient name"
           disabled={uploading}
         />
@@ -203,7 +203,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
       <div>
         <label 
           htmlFor="patientAge" 
-          className="block text-xl sm:text-2xl font-medium text-[#1E293B] dark:text-gray-200 mb-3"
+          className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-3"
         >
           Patient Age <span className="text-red-500 dark:text-red-400">*</span>
         </label>
@@ -212,7 +212,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
           id="patientAge"
           value={patientAge}
           onChange={(e) => setPatientAge(e.target.value)}
-          className="w-full px-5 py-4 min-h-[52px] text-lg border border-gray-400 dark:border-cyan-500/30 rounded-xl focus:ring-0 focus:border-cyan-500 dark:focus:ring-2 dark:focus:ring-cyan-400 dark:focus:border-transparent outline-none transition-all bg-white dark:bg-[#0a1628] text-[#1E293B] dark:text-gray-200 placeholder-gray-500 dark:placeholder-[#94a3b8]"
+          className="w-full px-3 py-2 text-sm border border-gray-400 dark:border-cyan-500/30 rounded-xl focus:ring-0 focus:border-cyan-500 dark:focus:ring-2 dark:focus:ring-cyan-400 dark:focus:border-transparent outline-none transition-all bg-white dark:bg-[#0a1628] text-[#1E293B] dark:text-gray-200 placeholder-gray-500 dark:placeholder-[#94a3b8]"
           placeholder="Enter patient age"
           min="0"
           max="150"
@@ -222,7 +222,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
 
       {/* MRI File Upload Area - Much Larger */}
       <div>
-        <label className="block text-xl sm:text-2xl font-medium text-[#1E293B] dark:text-gray-200 mb-3">
+        <label className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-3">
           MRI Scan <span className="text-red-500 dark:text-red-400">*</span>
         </label>
         
@@ -233,7 +233,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           className={`
-            relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all min-h-[240px] touch-manipulation
+            relative border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all touch-manipulation
             ${isDragging 
               ? 'border-cyan-400 bg-cyan-500/10' 
               : 'border-gray-400 dark:border-cyan-500/30 hover:border-cyan-400 active:border-cyan-400 hover:bg-cyan-50/30 dark:hover:bg-cyan-900/10'
@@ -251,9 +251,9 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
           />
           
           {/* Upload Icon - Larger */}
-          <div className="mb-6">
+          <div className="mb-2">
             <svg 
-              className="mx-auto h-16 w-16 text-cyan-400" 
+              className="mx-auto h-8 w-8 text-cyan-400" 
               stroke="currentColor" 
               fill="none" 
               viewBox="0 0 48 48" 
@@ -271,10 +271,10 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
           {/* Upload Text - Larger */}
           {mriFile ? (
             <div className="space-y-2">
-              <p className="text-lg font-medium text-cyan-400 break-words px-2">
+              <p className="text-sm font-medium text-cyan-400 break-words px-2">
                 {mriFile.name}
               </p>
-              <p className="text-base text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
                 {(mriFile.size / 1024 / 1024).toFixed(2)} MB
               </p>
               <p className="text-sm text-gray-400 dark:text-gray-500">
@@ -283,10 +283,10 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
             </div>
           ) : (
             <div className="space-y-2">
-              <p className="text-lg text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 <span className="font-medium text-cyan-500 dark:text-cyan-400">Tap to upload</span> or drag and drop
               </p>
-              <p className="text-base text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
                 JPEG or PNG (max 10MB)
               </p>
             </div>
