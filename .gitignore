@@ -40,3 +40,7 @@ frontend/.env.local
 # DB
 *.sqlite3
 db.sqlite3
+
+GRADCAM_EXPLANATION.md
+VIVA_QUESTIONS.md
+PRESENTATION_GUIDE.md
