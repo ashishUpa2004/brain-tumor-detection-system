@@ -21,17 +21,26 @@ class BrainTumorPredictor:
     # Model configuration
     IMG_SIZE = (128, 128)
     
-    def __init__(self, model_path: str = '../../best_vgg16.keras'):
+    def __init__(self, model_path: str = None):
         """
         Initialize predictor and load model
         
         Args:
-            model_path: Path to the .keras model file (relative to backend_temp/api/)
+            model_path: Path to the .keras model file
         """
         self.model = None
-        # Get absolute path relative to this file's directory
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        self.model_path = os.path.join(current_dir, model_path)
+        if model_path is None:
+            # Check env variable first (set by app.py for HF Spaces)
+            env_path = os.getenv('MODEL_PATH')
+            if env_path:
+                self.model_path = env_path
+            else:
+                # Default: relative to this file (../../best_vgg16.keras = Cognitive root)
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                self.model_path = os.path.join(current_dir, '../../best_vgg16.keras')
+        else:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            self.model_path = os.path.join(current_dir, model_path)
         self._load_model()
     
     def _load_model(self):
