@@ -46,7 +46,7 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
       <Navbar user={user} onLogout={onLogout} />
 
       {/* Full height content below navbar */}
-      <div className="flex-1 flex flex-col overflow-hidden" style={{ paddingTop: '52px' }}>
+      <div className="flex-1 flex flex-col overflow-hidden" style={{ paddingTop: '68px' }}>
         {/* Header strip */}
         <div className="px-6 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
           <div>
@@ -69,22 +69,25 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
         <div className="flex-1 flex overflow-hidden p-4 gap-4">
           {/* Left: Upload Form */}
           <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col overflow-hidden">
-            <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-[#1E293B] dark:text-gray-100">Upload MRI Scan</h2>
+            <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700 flex items-center justify-center bg-cyan-500 dark:bg-cyan-600 rounded-t-xl relative">
+              <h2 className="text-sm font-bold text-white uppercase tracking-wider">UPLOAD MRI SCAN</h2>
               {(predictionResult || isAnalyzing) && (
                 <button
                   onClick={handleNewScan}
-                  className="text-xs px-3 py-1 rounded-lg border border-cyan-500 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/20 transition-colors"
+                  className="absolute right-5 text-xs px-4 py-1.5 rounded-lg bg-white text-cyan-600 hover:bg-cyan-50 transition-colors font-semibold shadow-sm"
                 >
                   New Scan
                 </button>
               )}
             </div>
-            <div className="flex-1 overflow-y-auto p-4">              <UploadForm
-                onUploadSuccess={handleUploadSuccess}
-                onUploadStart={handleUploadStart}
-                onUploadError={handleUploadError}
-              />
+            <div className="flex-1 overflow-y-auto p-4 flex items-center">
+              <div className="w-full">
+                <UploadForm
+                  onUploadSuccess={handleUploadSuccess}
+                  onUploadStart={handleUploadStart}
+                  onUploadError={handleUploadError}
+                />
+              </div>
             </div>
           </div>
 
@@ -92,8 +95,8 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
           <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col overflow-hidden">
             {showHistory ? (
               <>
-                <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700">
-                  <h2 className="text-sm font-semibold text-[#1E293B] dark:text-gray-100">Scan History</h2>
+                <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700 bg-cyan-500 dark:bg-cyan-600 rounded-t-xl">
+                  <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center">SCAN HISTORY</h2>
                 </div>
                 <div className="flex-1 overflow-y-auto p-4">
                   <ScanHistory onSelectScan={handleSelectHistoricalScan} />
@@ -114,8 +117,8 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
               </div>
             ) : predictionResult && mriImageUrl ? (
               <>
-                <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700">
-                  <h2 className="text-sm font-semibold text-[#1E293B] dark:text-gray-100">Analysis Results</h2>
+                <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700 bg-cyan-400 dark:bg-cyan-500 rounded-t-xl">
+                  <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center">RESULT ANALYSIS</h2>
                 </div>
                 <div className="flex-1 overflow-y-auto p-4">
                   <ResultsDisplay result={predictionResult} mriImage={mriImageUrl} />
@@ -134,6 +137,21 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
             )}
           </div>
         </div>
+      </div>
+
+      {/* Footer */}
+      <div className="flex items-center justify-center gap-4 px-6 py-1.5 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-xs text-gray-500 dark:text-gray-400">
+        <span>Made with 💖 by ACE</span>
+        <a
+          href="https://github.com/ashishUpa2004/brain-tumor-detection-system"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+        >
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
       </div>
     </div>
   );

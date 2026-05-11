@@ -63,7 +63,7 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
         {/* Left: Logo with subtitle */}
         <div className="flex flex-col items-start">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-[#3B82F6] dark:text-blue-400">
+            <h1 className="text-3xl font-bold text-[#3B82F6] dark:text-blue-400">
               C
             </h1>
             
@@ -135,7 +135,7 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
               GNITIVE
             </h1>
           </div>
-          <p className="text-base text-cyan-600 dark:text-cyan-400 italic font-semibold" style={{ fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
+          <p className="text-base text-cyan-600 dark:text-cyan-400 italic font-normal" style={{ fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
             a brain tumor detection system
           </p>
         </div>
@@ -194,13 +194,13 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
 
             {/* Dropdown Menu */}
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-50">
-                {/* User Info at top */}
-                <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-                  <p className="text-sm font-semibold text-[#1E293B] dark:text-gray-200 truncate">
+              <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50">
+                {/* User Info at top with aqua strip */}
+                <div className="px-4 py-3 bg-cyan-500 dark:bg-cyan-600">
+                  <p className="text-sm font-semibold text-white truncate">
                     {user.name}
                   </p>
-                  <p className="text-xs text-[#64748B] dark:text-gray-400 truncate mt-0.5">
+                  <p className="text-xs text-white/80 truncate mt-0.5">
                     {user.email}
                   </p>
                 </div>

@@ -14,6 +14,24 @@ os.environ['DEBUG'] = 'False'
 # Add /app to path (HF Spaces working dir)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+# Download model from HF Model Hub if not present
+model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model', 'best_vgg16.keras')
+os.environ['MODEL_PATH'] = model_path
+
+if not os.path.exists(model_path):
+    print("📥 Downloading model from GitHub LFS...")
+    try:
+        import urllib.request
+        os.makedirs(os.path.dirname(model_path), exist_ok=True)
+        # GitHub LFS download URL
+        url = "https://media.githubusercontent.com/media/ashishUpa2004/brain-tumor-detection-system/main/best_vgg16.keras"
+        urllib.request.urlretrieve(url, model_path)
+        print("✅ Model downloaded successfully")
+    except Exception as e:
+        print(f"❌ Model download failed: {e}")
+else:
+    print("✅ Model already present")
+
 import django
 django.setup()
 

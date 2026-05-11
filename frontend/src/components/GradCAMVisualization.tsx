@@ -129,14 +129,14 @@ export default function GradCAMVisualization({
           <p className="text-xs text-center font-medium text-cyan-600 dark:text-cyan-400">
             Grad-CAM Heatmap
           </p>
-          <div className="rounded-lg overflow-hidden border-2 border-cyan-400 dark:border-cyan-600 bg-black flex items-center justify-center min-h-[120px]">
+          <div className="rounded-lg overflow-hidden border-2 border-cyan-400 dark:border-cyan-600 bg-black flex items-center justify-center min-h-[120px] max-h-[400px]">
             {heatmapLoading ? (
               <div className="flex flex-col items-center gap-2 p-4">
                 <div className="w-6 h-6 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
                 <p className="text-xs text-gray-400">Loading heatmap...</p>
               </div>
             ) : heatmapBlobUrl ? (
-              <img src={heatmapBlobUrl} alt="Grad-CAM Heatmap" className="w-full h-auto object-contain block" />
+              <img src={heatmapBlobUrl} alt="Grad-CAM Heatmap" className="w-full h-full object-contain block" />
             ) : heatmapError ? (
               <div className="flex flex-col items-center gap-2 p-4">
                 <p className="text-xs text-gray-400 text-center">Failed to load heatmap</p>
@@ -149,7 +149,7 @@ export default function GradCAMVisualization({
         </div>
       ) : (
         /* Original MRI when toggle OFF */
-        <div className="rounded-lg overflow-hidden border-2 border-gray-300 dark:border-gray-600 bg-black flex items-center justify-center min-h-[120px]">
+        <div className="rounded-lg overflow-hidden border-2 border-gray-300 dark:border-gray-600 bg-black flex items-center justify-center min-h-[120px] max-h-[400px]">
           {mriLoading ? (
             <div className="flex flex-col items-center gap-2 p-4">
               <div className="w-6 h-6 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
@@ -158,7 +158,7 @@ export default function GradCAMVisualization({
           ) : mriError ? (
             <p className="text-xs text-gray-400 p-4">Failed to load MRI image</p>
           ) : mriBlobUrl ? (
-            <img src={mriBlobUrl} alt="MRI Scan" className="w-full h-auto object-contain block" />
+            <img src={mriBlobUrl} alt="MRI Scan" className="w-full h-full object-contain block" />
           ) : null}
         </div>
       )}
