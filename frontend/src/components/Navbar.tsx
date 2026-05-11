@@ -58,19 +58,19 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 px-4 sm:px-6 py-4 sm:py-6 transition-colors z-50">
+    <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 px-4 sm:px-6 py-2 transition-colors z-50 border-b border-gray-200 dark:border-gray-700">
       <div className="flex justify-between items-center">
         {/* Left: Logo with subtitle */}
         <div className="flex flex-col items-start">
           <div className="flex items-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#3B82F6] dark:text-blue-400">
+            <h1 className="text-2xl font-bold text-[#3B82F6] dark:text-blue-400">
               C
             </h1>
             
             {/* Brain icon replacing "O" - Larger size */}
             <svg
               viewBox="0 0 200 200"
-              className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 -mx-0.5"
+              className="w-7 h-7 -mx-0.5"
               xmlns="http://www.w3.org/2000/svg"
             >
               {/* Main brain shape */}
@@ -131,11 +131,11 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
               </circle>
             </svg>
             
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#3B82F6] dark:text-blue-400">
+            <h1 className="text-2xl font-bold text-[#3B82F6] dark:text-blue-400">
               GNITIVE
             </h1>
           </div>
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-white italic font-bold mt-1" style={{ fontFamily: 'Georgia, serif' }}>
+          <p className="text-base text-cyan-600 dark:text-cyan-400 italic font-semibold" style={{ fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
             a brain tumor detection system
           </p>
         </div>
@@ -145,12 +145,12 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
           {/* Dark Mode Toggle - Touch-friendly and bigger */}
           <button
             onClick={toggleTheme}
-            className="p-3 sm:p-4 min-h-[56px] min-w-[56px] flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 transition-colors touch-manipulation"
+            className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 transition-colors touch-manipulation"
             aria-label="Toggle dark mode"
           >
             {theme === 'light' ? (
               <svg
-                className="w-7 h-7 sm:w-8 sm:h-8 text-gray-600 dark:text-gray-300"
+                className="w-5 h-5 text-gray-600 dark:text-gray-300"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -164,7 +164,7 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
               </svg>
             ) : (
               <svg
-                className="w-7 h-7 sm:w-8 sm:h-8 text-gray-300"
+                className="w-5 h-5 text-gray-300"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -187,35 +187,43 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
               aria-label="User menu"
               aria-expanded={isDropdownOpen}
             >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#3B82F6] dark:bg-blue-500 flex items-center justify-center text-white font-semibold text-lg sm:text-xl transition-colors">
+              <div className="w-8 h-8 rounded-full bg-[#3B82F6] dark:bg-blue-500 flex items-center justify-center text-white font-semibold text-sm transition-colors">
                 {getInitials(user.name)}
               </div>
             </button>
 
-            {/* Dropdown Menu - Touch-optimized and bigger */}
+            {/* Dropdown Menu */}
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-96 sm:w-[28rem] bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-4 z-50">
-                {/* User Info */}
-                <div className="px-10 py-8 border-b border-gray-200 dark:border-gray-700">
-                  <p className="text-2xl font-medium text-[#1E293B] dark:text-gray-200 truncate">
+              <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-50">
+                {/* User Info at top */}
+                <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                  <p className="text-sm font-semibold text-[#1E293B] dark:text-gray-200 truncate">
                     {user.name}
                   </p>
-                  <p className="text-xl text-[#64748B] dark:text-gray-400 truncate mt-3">
+                  <p className="text-xs text-[#64748B] dark:text-gray-400 truncate mt-0.5">
                     {user.email}
                   </p>
                 </div>
 
-                {/* Menu Items - Touch-friendly and bigger */}
+                {/* Profile */}
                 <button
                   onClick={handleProfileClick}
-                  className="w-full text-left px-10 py-8 min-h-[72px] text-2xl text-[#1E293B] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 transition-colors touch-manipulation"
+                  className="w-full text-left px-4 py-3 text-sm font-medium text-[#1E293B] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2"
                 >
+                  <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
                   Profile
                 </button>
+
+                {/* Logout */}
                 <button
                   onClick={handleLogoutClick}
-                  className="w-full text-left px-10 py-8 min-h-[72px] text-2xl text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 transition-colors touch-manipulation"
+                  className="w-full text-left px-4 py-3 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2"
                 >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
                   Logout
                 </button>
               </div>
