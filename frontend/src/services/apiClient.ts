@@ -29,7 +29,7 @@ import type {
 
 // HTTPS Enforcement: In production, ensure API_BASE_URL uses HTTPS protocol
 // Example: https://api.cognitive-tumor-detection.com
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const USE_MOCK_API = import.meta.env.VITE_USE_MOCK_API === 'true' || false;
 
 // Validate HTTPS in production
@@ -365,7 +365,12 @@ export const predict = async (formData: FormData): Promise<PredictionApiResponse
     return {
       prediction: data.prediction,
       confidence: data.confidence,
-      probabilities: data.probabilities || {
+      probabilities: data.probabilities ? {
+        glioma: data.probabilities.glioma || 0,
+        meningioma: data.probabilities.meningioma || 0,
+        pituitary: data.probabilities.pituitary || 0,
+        noTumor: data.probabilities.no_tumor || data.probabilities.noTumor || 0
+      } : {
         glioma: 0,
         meningioma: 0,
         pituitary: 0,
