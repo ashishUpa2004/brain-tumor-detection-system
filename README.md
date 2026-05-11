@@ -24,10 +24,11 @@ COGNITIVE is a full-stack web application that analyzes MRI scans and classifies
 - 🔐 Secure user authentication (JWT)
 - 📤 MRI scan upload and analysis
 - 🤖 AI-powered tumor detection
+- 🔥 Grad-CAM heatmap visualization
 - 📊 Confidence score display
 - 📄 Automatic PDF report generation
 - 📜 Scan history with pagination
-- 🎨 Modern dark theme UI
+- 🎨 Modern dark theme UI with cyan accents
 - 🌐 3D brain visualization
 - ⚡ Real-time predictions
 
@@ -44,7 +45,7 @@ COGNITIVE is a full-stack web application that analyzes MRI scans and classifies
 ### Backend
 - Django 5.1
 - FastAPI
-- MySQL
+- SQLite
 - JWT Authentication
 
 ### Machine Learning
@@ -60,7 +61,6 @@ COGNITIVE is a full-stack web application that analyzes MRI scans and classifies
 ### Prerequisites
 - Python 3.10+
 - Node.js 18+
-- MySQL 8.0+
 
 ### Backend Setup
 
@@ -72,7 +72,7 @@ pip install -r requirements.txt
 python run_server.py
 ```
 
-Backend runs on: http://localhost:8000
+Backend runs on: http://localhost:7860
 
 ### Frontend Setup
 
@@ -84,13 +84,17 @@ npm run dev
 
 Frontend runs on: http://localhost:5173
 
-### Database Setup
+---
 
-```sql
-CREATE DATABASE cognitive_django_db;
-```
+##  Recent UI Improvements
 
-Update credentials in `backend_temp/cognitive/settings.py`
+- ✨ **Cyan Strip Headers**: Added consistent cyan-colored headers with white text for all major sections
+- 🎨 **Enhanced Navbar**: Updated dropdown menu with cyan background and improved user info display
+- 🖼️ **Custom Favicon**: Brain scan image set as favicon for better branding
+- 📐 **Layout Optimization**: Fixed form scrolling issues and improved spacing
+- 🔧 **Grad-CAM Visualization**: Fixed image overflow with proper height constraints
+- 🧹 **Code Cleanup**: Removed unused files and assets for cleaner codebase
+- 🎯 **Conditional New Scan Button**: Button appears only after scan upload for better UX
 
 ---
 
