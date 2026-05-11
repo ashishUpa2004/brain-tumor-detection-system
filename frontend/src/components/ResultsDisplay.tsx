@@ -65,11 +65,6 @@ export default function ResultsDisplay({ result, mriImage }: ResultsDisplayProps
     <div className="space-y-4 sm:space-y-6">
       {/* Results Card */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 lg:p-8 transition-colors">
-        {/* Header */}
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1E293B] dark:text-gray-100 mb-4 sm:mb-6">
-          Analysis Results
-        </h2>
-
         {/* Main Results Grid - Stack on mobile */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {/* Left Column: Classification and Confidence */}
@@ -260,20 +255,22 @@ export default function ResultsDisplay({ result, mriImage }: ResultsDisplayProps
       </div>
 
       {/* Grad-CAM Visualization Card - always show when we have an MRI image */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 lg:p-8 transition-colors">
-        <div className="mb-3 sm:mb-4">
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#1E293B] dark:text-gray-100">
-            Grad-CAM Visualization
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors">
+        <div className="px-5 py-3 bg-cyan-500 dark:bg-cyan-600">
+          <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center">
+            GRAD-CAM VISUALIZATION
           </h2>
-          <p className="text-xs sm:text-sm text-[#64748B] dark:text-gray-400 mt-1">
+          <p className="text-xs text-white/80 text-center mt-1">
             Highlights the brain regions the AI focused on to make its prediction
           </p>
         </div>
+        <div className="p-4 sm:p-6 lg:p-8">
         <GradCAMVisualization
           mriImage={mriImage}
           gradCamOverlay={result.gradCamUrl || null}
           enabled={false}
         />
+        </div>
       </div>
     </div>
   );

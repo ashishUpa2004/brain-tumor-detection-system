@@ -171,7 +171,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
   // ============================================================================
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-2">
       {/* Error Message */}
       {error && (
         <ErrorMessage 
@@ -184,7 +184,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
       <div>
         <label 
           htmlFor="patientName" 
-          className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-3"
+          className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-2"
         >
           Patient Name <span className="text-red-500 dark:text-red-400">*</span>
         </label>
@@ -203,7 +203,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
       <div>
         <label 
           htmlFor="patientAge" 
-          className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-3"
+          className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-2"
         >
           Patient Age <span className="text-red-500 dark:text-red-400">*</span>
         </label>
@@ -222,7 +222,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
 
       {/* MRI File Upload Area - Much Larger */}
       <div>
-        <label className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-3">
+        <label className="block text-sm font-medium text-[#1E293B] dark:text-gray-200 mb-2">
           MRI Scan <span className="text-red-500 dark:text-red-400">*</span>
         </label>
         
@@ -295,9 +295,9 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
       </div>
 
       {/* Secure Processing Badge - Larger */}
-      <div className="flex items-center justify-center space-x-2 text-base text-gray-600 dark:text-gray-400 py-3">
+      <div className="flex items-center justify-center space-x-2 text-base text-gray-600 dark:text-gray-400 py-2">
         <svg 
-          className="h-6 w-6 text-green-500 dark:text-green-400 flex-shrink-0" 
+          className="h-5 w-5 text-green-500 dark:text-green-400 flex-shrink-0" 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -319,7 +319,7 @@ export default function UploadForm({ onUploadSuccess, onUploadStart, onUploadErr
         type="submit"
         disabled={!isFormValid() || uploading}
         className={`
-          w-full py-5 px-6 min-h-[56px] rounded-xl font-semibold text-lg text-white transition-all touch-manipulation shadow-lg
+          w-full py-2 px-4 rounded-xl font-semibold text-sm text-white transition-all touch-manipulation shadow-lg
           ${isFormValid() && !uploading
             ? 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 cursor-pointer shadow-cyan-500/30'
             : 'bg-gray-600 cursor-not-allowed'
