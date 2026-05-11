@@ -63,7 +63,7 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 w-full pt-24 sm:pt-28 lg:pt-32">
         {/* Hero Section */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#1E293B] dark:text-gray-100 mb-3 sm:mb-4 lg:mb-6 transition-colors px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1E293B] dark:text-gray-100 mb-3 sm:mb-4 lg:mb-6 transition-colors px-2">
             AI-Assisted Brain MRI Analysis
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-[#64748B] dark:text-gray-400 max-w-3xl mx-auto transition-colors px-4">
