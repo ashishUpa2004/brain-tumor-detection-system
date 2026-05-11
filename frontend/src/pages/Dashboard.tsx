@@ -173,11 +173,11 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
             )}
           </div>
         ) : (
-          /* Layout: Upload Form on left, Scan History below on right */
-          <div className="space-y-6 sm:space-y-8 lg:space-y-12">
-            {/* Upload Form Section - Full Width */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-cyan-200 dark:hover:border-cyan-700 transition-all duration-300 p-6 sm:p-8 lg:p-12">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#1E293B] dark:text-gray-100 mb-6 sm:mb-8 transition-colors text-center">
+          /* Layout: Upload Form centered, compact */
+          <div className="space-y-6 sm:space-y-8">
+            {/* Upload Form Section - Centered, max width */}
+            <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-cyan-200 dark:hover:border-cyan-700 transition-all duration-300 p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-[#1E293B] dark:text-gray-100 mb-4 sm:mb-6 transition-colors text-center">
                 Upload MRI Scan
               </h2>
               <UploadForm onUploadSuccess={handleUploadSuccess} />
