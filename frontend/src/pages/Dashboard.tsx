@@ -73,7 +73,7 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
       <Navbar user={user} onLogout={onLogout} />
 
       {/* Full height content below navbar */}
-      <div className="flex flex-col" style={{ paddingTop: '68px' }}>
+      <div className="flex-1 flex flex-col" style={{ paddingTop: '68px' }}>
         {/* Header strip */}
         <div className="px-6 py-6 bg-gradient-to-r from-slate-800 to-slate-900 dark:from-slate-900 dark:to-black relative">
           <div className="max-w-4xl mx-auto text-center">
@@ -93,7 +93,7 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
         </div>
 
         {/* Main 2-column layout */}
-        <div className="pb-4">
+        <div className="flex-1 pb-4">
           <div className="p-4">
           <div className="max-w-7xl mx-auto flex gap-4 items-start">
           {/* Left: Upload Form */}
