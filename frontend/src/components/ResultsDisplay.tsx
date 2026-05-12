@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, RefObject } from 'react';
 import GradCAMVisualization from './GradCAMVisualization';
 import LoadingSpinner from './LoadingSpinner';
 import { downloadReport } from '../services/apiClient';
@@ -14,7 +14,11 @@ import type { ResultsDisplayProps, TumorType } from '../types';
  * Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 7.1, 7.2, 7.3, 7.4, 10.1, 10.2
  */
 
-export default function ResultsDisplay({ result, mriImage }: ResultsDisplayProps) {
+interface ResultsDisplayPropsExtended extends ResultsDisplayProps {
+  gradCamRef?: RefObject<HTMLDivElement>;
+}
+
+export default function ResultsDisplay({ result, mriImage, gradCamRef }: ResultsDisplayPropsExtended) {
   const [downloadingReport, setDownloadingReport] = useState(false);
   const [downloadError, setDownloadError] = useState<string | null>(null);
 
@@ -255,8 +259,8 @@ export default function ResultsDisplay({ result, mriImage }: ResultsDisplayProps
       </div>
 
       {/* Grad-CAM Visualization Card - always show when we have an MRI image */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors">
-        <div className="px-5 py-3 bg-cyan-500 dark:bg-cyan-600">
+      <div ref={gradCamRef} className="bg-white dark:bg-gray-800 rounded-lg shadow-md transition-colors p-4 sm:p-6">
+        <div className="mb-4 px-4 py-2 bg-cyan-500 dark:bg-cyan-600 rounded-lg">
           <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center">
             GRAD-CAM VISUALIZATION
           </h2>
@@ -264,13 +268,11 @@ export default function ResultsDisplay({ result, mriImage }: ResultsDisplayProps
             Highlights the brain regions the AI focused on to make its prediction
           </p>
         </div>
-        <div className="p-4 sm:p-6 lg:p-8">
         <GradCAMVisualization
           mriImage={mriImage}
           gradCamOverlay={result.gradCamUrl || null}
           enabled={false}
         />
-        </div>
       </div>
     </div>
   );

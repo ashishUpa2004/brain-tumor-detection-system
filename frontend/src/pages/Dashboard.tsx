@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import UploadForm from '../components/UploadForm';
 import ResultsDisplay from '../components/ResultsDisplay';
@@ -15,16 +15,41 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
   const [mriImageUrl, setMriImageUrl] = useState<string | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [headerTitle, setHeaderTitle] = useState('RESULT ANALYSIS');
+  const gradCamRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer || !predictionResult) return;
+
+    const handleScroll = () => {
+      if (gradCamRef.current) {
+        const rect = gradCamRef.current.getBoundingClientRect();
+        // If Grad-CAM strip is scrolled out of view (above viewport)
+        if (rect.top < 100) {
+          setHeaderTitle('GRAD-CAM VISUALIZATION');
+        } else {
+          setHeaderTitle('RESULT ANALYSIS');
+        }
+      }
+    };
+
+    scrollContainer.addEventListener('scroll', handleScroll);
+    return () => scrollContainer.removeEventListener('scroll', handleScroll);
+  }, [predictionResult]);
 
   const handleUploadStart = () => {
     setIsAnalyzing(true);
     setPredictionResult(null);
+    setHeaderTitle('RESULT ANALYSIS');
   };
 
   const handleUploadSuccess = (result: PredictionResult, imageUrl: string) => {
     setPredictionResult(result);
     setMriImageUrl(imageUrl);
     setIsAnalyzing(false);
+    setHeaderTitle('RESULT ANALYSIS');
   };
 
   const handleUploadError = () => setIsAnalyzing(false);
@@ -33,42 +58,46 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
     setPredictionResult(null);
     setMriImageUrl(null);
     setIsAnalyzing(false);
+    setHeaderTitle('RESULT ANALYSIS');
   };
 
   const handleSelectHistoricalScan = (result: PredictionResult, imageUrl: string) => {
     setPredictionResult(result);
     setMriImageUrl(imageUrl);
     setShowHistory(false);
+    setHeaderTitle('RESULT ANALYSIS');
   };
 
   return (
-    <div className="h-screen flex flex-col bg-[#F8FAFC] dark:bg-gray-900 overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] dark:bg-gray-900">
       <Navbar user={user} onLogout={onLogout} />
 
       {/* Full height content below navbar */}
-      <div className="flex-1 flex flex-col overflow-hidden" style={{ paddingTop: '68px' }}>
+      <div className="flex flex-col" style={{ paddingTop: '68px' }}>
         {/* Header strip */}
-        <div className="px-6 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
-          <div>
-            <h1 className="text-lg font-bold text-[#1E293B] dark:text-gray-100">
+        <div className="px-6 py-6 bg-gradient-to-r from-slate-800 to-slate-900 dark:from-slate-900 dark:to-black relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
               AI-Assisted Brain MRI Analysis
             </h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              Upload MRI scans for tumor detection
+            <p className="text-sm md:text-base text-gray-300 dark:text-gray-400 max-w-3xl mx-auto">
+              Upload MRI scans for tumor detection analysis. Our AI-powered system provides accurate predictions with confidence metrics and detailed visualizations.
             </p>
           </div>
           <button
             onClick={() => setShowHistory(!showHistory)}
-            className="text-xs px-3 py-1.5 rounded-lg border border-cyan-500 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/20 transition-colors"
+            className="absolute top-6 right-6 text-xs px-3 py-1.5 rounded-lg border border-cyan-500 text-cyan-400 hover:bg-cyan-900/20 transition-colors z-10"
           >
             {showHistory ? 'Hide History' : 'Scan History'}
           </button>
         </div>
 
         {/* Main 2-column layout */}
-        <div className="flex-1 flex overflow-hidden p-4 gap-4">
+        <div className="pb-4">
+          <div className="p-4">
+          <div className="max-w-7xl mx-auto flex gap-4 items-start">
           {/* Left: Upload Form */}
-          <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col overflow-hidden">
+          <div className="w-full md:w-5/12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col h-fit">
             <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700 flex items-center justify-center bg-cyan-500 dark:bg-cyan-600 rounded-t-xl relative">
               <h2 className="text-sm font-bold text-white uppercase tracking-wider">UPLOAD MRI SCAN</h2>
               {(predictionResult || isAnalyzing) && (
@@ -80,30 +109,28 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
                 </button>
               )}
             </div>
-            <div className="flex-1 overflow-y-auto p-4 flex items-center">
-              <div className="w-full">
-                <UploadForm
-                  onUploadSuccess={handleUploadSuccess}
-                  onUploadStart={handleUploadStart}
-                  onUploadError={handleUploadError}
-                />
-              </div>
+            <div className="p-4">
+              <UploadForm
+                onUploadSuccess={handleUploadSuccess}
+                onUploadStart={handleUploadStart}
+                onUploadError={handleUploadError}
+              />
             </div>
           </div>
 
           {/* Right: Results or History */}
-          <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col overflow-hidden">
+          <div className="w-full md:w-7/12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col h-fit">
             {showHistory ? (
               <>
                 <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700 bg-cyan-500 dark:bg-cyan-600 rounded-t-xl">
                   <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center">SCAN HISTORY</h2>
                 </div>
-                <div className="flex-1 overflow-y-auto p-4">
+                <div className="p-4">
                   <ScanHistory onSelectScan={handleSelectHistoricalScan} />
                 </div>
               </>
             ) : isAnalyzing ? (
-              <div className="flex-1 flex flex-col items-center justify-center space-y-4">
+              <div className="flex flex-col items-center justify-center space-y-4 p-12">
                 <div className="relative">
                   <div className="w-20 h-20 border-4 border-cyan-200 dark:border-cyan-900 rounded-full"></div>
                   <div className="absolute top-0 left-0 w-20 h-20 border-4 border-transparent border-t-cyan-500 border-r-cyan-500 rounded-full animate-spin"></div>
@@ -118,14 +145,14 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
             ) : predictionResult && mriImageUrl ? (
               <>
                 <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-700 bg-cyan-400 dark:bg-cyan-500 rounded-t-xl">
-                  <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center">RESULT ANALYSIS</h2>
+                  <h2 className="text-sm font-bold text-white uppercase tracking-wider text-center">{headerTitle}</h2>
                 </div>
-                <div className="flex-1 overflow-y-auto p-4">
-                  <ResultsDisplay result={predictionResult} mriImage={mriImageUrl} />
+                <div className="p-4">
+                  <ResultsDisplay result={predictionResult} mriImage={mriImageUrl} gradCamRef={gradCamRef} />
                 </div>
               </>
             ) : (
-              <div className="flex-1 flex flex-col items-center justify-center text-center p-6">
+              <div className="flex flex-col items-center justify-center text-center p-12">
                 <div className="w-16 h-16 bg-cyan-50 dark:bg-cyan-900/20 rounded-full flex items-center justify-center mb-4">
                   <svg className="w-8 h-8 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -135,6 +162,8 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
                 <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">Upload an MRI scan to get started</p>
               </div>
             )}
+          </div>
+          </div>
           </div>
         </div>
       </div>
