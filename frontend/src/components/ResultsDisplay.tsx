@@ -1,4 +1,4 @@
-import { useState, RefObject } from 'react';
+import { useState, type RefObject } from 'react';
 import GradCAMVisualization from './GradCAMVisualization';
 import LoadingSpinner from './LoadingSpinner';
 import { downloadReport } from '../services/apiClient';
@@ -15,7 +15,7 @@ import type { ResultsDisplayProps, TumorType } from '../types';
  */
 
 interface ResultsDisplayPropsExtended extends ResultsDisplayProps {
-  gradCamRef?: RefObject<HTMLDivElement>;
+  gradCamRef?: RefObject<HTMLDivElement | null>;
 }
 
 export default function ResultsDisplay({ result, mriImage, gradCamRef }: ResultsDisplayPropsExtended) {
