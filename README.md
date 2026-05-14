@@ -1,4 +1,4 @@
-# COGNITIVE 🧠
+# COGNITIVE Brain Tumor Detection System 
 **AI-Powered Web Application for Brain Tumor Detection using Deep Learning**
 
 ![COGNITIVE](https://img.shields.io/badge/Status-Active-success)
@@ -10,7 +10,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -29,7 +29,7 @@
 
 ---
 
-## 📋 Overview
+##  Overview
 
 COGNITIVE is a full-stack web application that analyzes MRI scans and classifies brain tumors into 4 categories:
 
@@ -42,22 +42,22 @@ The system uses deep learning (VGG16 transfer learning) with Grad-CAM visualizat
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔐 **Secure Authentication** - JWT-based user authentication
-- 📤 **MRI Upload & Analysis** - Support for JPG/PNG medical images
-- 🤖 **AI-Powered Detection** - VGG16 model trained on 17,000+ images
-- 🔥 **Grad-CAM Visualization** - Explainable AI heatmaps
-- 📊 **Confidence Scores** - Prediction confidence display
-- 📄 **PDF Reports** - Automatic report generation
-- 📜 **Scan History** - Paginated history with search
-- 🎨 **Modern UI** - Dark theme with cyan accents
-- 🌐 **3D Visualization** - Interactive brain model
-- ⚡ **Real-time Predictions** - Fast inference
+- **Secure Authentication** - JWT-based user authentication
+- **MRI Upload & Analysis** - Support for JPG/PNG medical images
+- **AI-Powered Detection** - VGG16 model trained on 17,000+ images
+- **Grad-CAM Visualization** - Explainable AI heatmaps
+- **Confidence Scores** - Prediction confidence display
+- **PDF Reports** - Automatic report generation
+- **Scan History** - Paginated history with search
+- **Modern UI** - Dark theme with cyan accents
+- **3D Visualization** - Interactive brain model
+- **Real-time Predictions** - Fast inference
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - **React 19** + TypeScript
@@ -84,11 +84,11 @@ The system uses deep learning (VGG16 transfer learning) with Grad-CAM visualizat
 
 ---
 
-## 📦 Software Requirements
+##  Software Requirements
 
 ### 1. **Python** (Version 3.9 - 3.11 recommended)
    - Download from: https://www.python.org/downloads/
-   - ⚠️ **Important**: Check "Add Python to PATH" during installation
+   -  **Important**: Check "Add Python to PATH" during installation
 
 ### 2. **Node.js** (Version 18 or higher)
    - Download from: https://nodejs.org/
@@ -102,7 +102,7 @@ The system uses deep learning (VGG16 transfer learning) with Grad-CAM visualizat
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Quick Setup
 
@@ -139,7 +139,7 @@ npm run dev
 
 ---
 
-## 📖 Detailed Setup Guide
+##  Detailed Setup Guide
 
 ### **Step 1: Clone the Repository**
 
@@ -236,7 +236,7 @@ cd backend_temp
 # Activate virtual environment first
 python manage.py runserver
 ```
-✅ Backend running at: `http://localhost:8000`
+ Backend running at: `http://localhost:8000`
 
 **Terminal 2 - FastAPI Server (for predictions):**
 ```bash
@@ -244,7 +244,7 @@ cd backend_temp
 # Activate virtual environment first
 python app.py
 ```
-✅ FastAPI running at: `http://localhost:8001`
+ FastAPI running at: `http://localhost:8001`
 
 #### 4.2 Start Frontend Server
 
@@ -253,11 +253,11 @@ python app.py
 cd frontend
 npm run dev
 ```
-✅ Frontend running at: `http://localhost:5173`
+ Frontend running at: `http://localhost:5173`
 
 ---
 
-## 📦 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -271,18 +271,18 @@ USE_SQLITE=True
 ```
 
 This configuration uses:
-- ✅ **SQLite Database** - No installation required, file-based database
-- ✅ **Pre-configured SECRET_KEY** - Ready to use for development
-- ✅ **Debug Mode Enabled** - For development/testing
+- **SQLite Database** - No installation required, file-based database
+- **Pre-configured SECRET_KEY** - Ready to use for development
+- **Debug Mode Enabled** - For development/testing
 
-> **📝 Note**: The SECRET_KEY is provided for university submission/development purposes. For production deployment, generate a new secure key using:
+> ** Note**: The SECRET_KEY is provided for university submission/development purposes. For production deployment, generate a new secure key using:
 > ```bash
 > python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 > ```
 
 ---
 
-## 📊 Database Setup
+## Database Setup
 
 ### SQLite (Default - No Configuration Needed)
 
@@ -303,14 +303,14 @@ python manage.py createsuperuser
 Database file created automatically at: `backend_temp/db.sqlite3`
 
 **Advantages:**
-- ✅ No installation required
-- ✅ Perfect for development/testing/university projects
-- ✅ Easy to reset (just delete db.sqlite3 and run migrations again)
-- ✅ Portable - entire database in one file
+- No installation required
+- Perfect for development/testing/university projects
+- Easy to reset (just delete db.sqlite3 and run migrations again)
+- Portable - entire database in one file
 
 ---
 
-## 🎯 How to Use
+## How to Use
 
 ### 1. **Access the Application**
    - Open browser and go to: `http://localhost:5173`
@@ -343,7 +343,7 @@ Database file created automatically at: `backend_temp/db.sqlite3`
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 brain-tumor-detection-system/
@@ -394,7 +394,7 @@ brain-tumor-detection-system/
 
 ---
 
-## 📊 Model Performance
+##  Model Performance
 
 | Tumor Type | Accuracy |
 |------------|----------|
@@ -409,7 +409,7 @@ brain-tumor-detection-system/
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Backend Issues
 
@@ -492,7 +492,7 @@ python manage.py runserver 8080
 
 ---
 
-## ✅ Verification Steps
+##  Verification Steps
 
 After setup, verify everything is working:
 
@@ -532,15 +532,15 @@ exit()
 
 ---
 
-## 📞 Support
+##  Support
 
 **GitHub Repository**: [https://github.com/ashishUpa2004/brain-tumor-detection-system](https://github.com/ashishUpa2004/brain-tumor-detection-system)
 
-- 📖 View documentation
+-  View documentation
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - VGG16 architecture by Visual Geometry Group, Oxford
 - Brain tumor dataset from Kaggle
@@ -549,7 +549,7 @@ exit()
 
 ---
 
-## ⚠️ Medical Disclaimer
+##  Medical Disclaimer
 
 This is an AI-assisted tool for **preliminary analysis only**. It is **NOT** a substitute for professional medical diagnosis. Always consult qualified medical professionals for diagnosis and treatment decisions.
 
